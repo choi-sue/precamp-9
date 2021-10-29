@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Document</title>
+    <script>
+        let isActive = false
+        const getToken=()=>{
+            
+            if(isActive === false){
+                isActive = true
+
+            const token = String(Math.floor(Math.random()*1000000)).padStart(6,"0")
+            document.getElementById("aaa").innerText=token
+
+            let time = 180
+
+            setInterval(function(){
+
+                const minutes = String(Math.floor(time / 60)).padStart(2,"0")
+                const seconds = String(time % 60).padStart(2,"0")
+
+                if(time>=0){
+                    document.getElementById("bbb").innerText=(minutes + ":" + seconds)
+                    time = time - 1
+                }
+            },1000)
+            }   
+
+        }
+
+    </script>
+</head>
+<br>
+    <span id="aaa">000000</span>
+    <button onclick="getToken()">인증번호 전송</button><br>
+    <span id="bbb">03:00</span>
+</body>
+</html>
